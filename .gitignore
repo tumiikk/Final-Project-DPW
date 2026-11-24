@@ -1,0 +1,14 @@
+# Konfigurasi rahasia (password database & admin) - JANGAN di-commit
+.env
+.env.*
+!.env.example
+
+# Log aplikasi
+storage/logs/*.log
+
+# File sistem/editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

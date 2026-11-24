@@ -1,0 +1,11 @@
+# Dipakai bila document root mengarah ke folder proyek (bukan folder public/).
+# Semua request dialihkan secara internal ke folder public/, sehingga file rahasia
+# (.env, app/, config/, database/) tidak dapat dibuka dari browser.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

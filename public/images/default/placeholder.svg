@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Foto belum tersedia">
+  <rect width="800" height="600" fill="#E9E4D6"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#C9A96E" stroke-width="3" stroke-dasharray="14 10"/>
+  <g fill="none" stroke="#2E4A70" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity=".55">
+    <rect x="300" y="230" width="200" height="140" rx="12"/>
+    <circle cx="360" cy="280" r="16"/>
+    <path d="M310 360l60-50 40 34 30-24 50 40"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+# Aturan Apache untuk folder public/ (document root website).
+# - File statis yang ada (gambar, CSS, JS, font) dilayani langsung.
+# - Semua URL lain diteruskan ke index.php (front controller / router PHP Native).
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Teruskan header Authorization ke PHP
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Hapus garis miring di akhir URL (kecuali folder)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Kirim request ke front controller
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Batas upload (foto 5 MB, lagu 15 MB) untuk PHP yang berjalan sebagai modul Apache (Laragon).
+# Untuk PHP-FPM/CGI, nilai yang sama diatur oleh file .user.ini di folder ini.
+<IfModule mod_php.c>
+    php_value upload_max_filesize 16M
+    php_value post_max_size 20M
+</IfModule>
+<IfModule mod_php7.c>
+    php_value upload_max_filesize 16M
+    php_value post_max_size 20M
+</IfModule>

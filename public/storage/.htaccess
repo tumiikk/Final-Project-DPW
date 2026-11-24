@@ -1,0 +1,8 @@
+# Folder file unggahan admin: hanya file media yang boleh dibuka, script tidak pernah dijalankan.
+Options -Indexes
+<FilesMatch "\.(php|phtml|phar|pl|py|cgi|sh|htaccess)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>

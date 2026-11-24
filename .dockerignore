@@ -1,0 +1,4 @@
+# File yang tidak ikut ke image Docker
+.env
+.git
+storage/logs/*.log

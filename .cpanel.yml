@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/usmfnlhj/public_html/
+    - /bin/cp -R public/. $DEPLOYPATH

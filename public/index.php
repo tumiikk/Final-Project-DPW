@@ -15,7 +15,13 @@ use App\Core\RateLimiter;
 use App\Core\Router;
 use App\Core\ValidationException;
 
-require dirname(__DIR__).'/app/bootstrap.php';
+$projectRoot = dirname(__DIR__);
+
+if (!is_file($projectRoot . '/app/bootstrap.php')) {
+    $projectRoot = '/home/usmfnlhj/repositories/Final-Project-DPW';
+}
+
+require $projectRoot . '/app/bootstrap.php';
 
 // Server bawaan PHP (php -S): file statis yang ada dilayani langsung tanpa melewati aplikasi.
 if (PHP_SAPI === 'cli-server') {

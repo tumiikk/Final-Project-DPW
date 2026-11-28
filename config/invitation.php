@@ -19,7 +19,10 @@ return [
     'uploads' => [
         // Folder fisik tempat file unggahan disimpan; URL publiknya /storage/<path>.
         // Di Railway, pasang Volume pada folder ini (/var/www/html/public/storage) agar file tidak hilang saat redeploy.
-        'root' => BASE_PATH.'/public/storage',
+        // 'root' => BASE_PATH.'/public/storage',
+        'root' => !empty($_SERVER['DOCUMENT_ROOT'])
+        ? rtrim($_SERVER['DOCUMENT_ROOT'], '/\\').'/storage'
+        : BASE_PATH.'/public/storage',
         // Nama "disk" yang dicatat di tabel media_files (dipertahankan dari Laravel).
         'disk' => 'public',
         'dir' => 'invitations',
